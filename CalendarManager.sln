@@ -1,0 +1,95 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalendarManager", "CalendarManager\CalendarManager.csproj", "{B2E8F7EA-12C1-4E4F-AAC8-612D5E3554CE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{2F6B6EE2-6897-449E-BE76-8A272A65C85C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalendarManager.Model", "CalendarManager.Model\CalendarManager.Model.csproj", "{8344E754-B0BF-47DD-9E9C-81DBA54170D1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{3E96FAF8-63D6-4433-9F81-EBDD6C411405}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalendarManager.Infrastructure", "CalendarManager.Infrastructure\CalendarManager.Infrastructure.csproj", "{3F63725A-B22D-4860-8976-EE3E3A4BBEDE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccess", "DataAccess", "{6A21221A-E24E-4B36-8261-37FFD4B873E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalendarManager.DataAccess", "CalendarManager.DataAccess\CalendarManager.DataAccess.csproj", "{16E016B3-CFA7-4591-890B-2752FCCB2F45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalendarManager.EntityFramework", "CalendarManager.EntityFramework\CalendarManager.EntityFramework.csproj", "{568B4044-78C1-4F20-AADB-239223B66700}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalendarManager.Migrations", "CalendarManager.Migrations\CalendarManager.Migrations.csproj", "{6AD659BD-0C70-445F-ADC0-06417B01AFCB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{E0D83936-BE6F-4866-98CB-B5353B11E2CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalendarManager.DTO", "CalendarManager.DTO\CalendarManager.DTO.csproj", "{BFE3B781-39D6-4F3A-A8AB-E55D83241896}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalendarManager.Mapper", "CalendarManager.Mapper\CalendarManager.Mapper.csproj", "{EE36A8D0-0B3C-47A5-874B-913595E19248}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalendarManager.Services", "CalendarManager.Services\CalendarManager.Services.csproj", "{1613E73A-8635-4DAD-9200-BE0EE9DB196D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalendarManager.IoC", "CalendarManager.IoC\CalendarManager.IoC.csproj", "{CF785E34-46A9-4EF0-A8A0-6804C7EEA8F8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B2E8F7EA-12C1-4E4F-AAC8-612D5E3554CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2E8F7EA-12C1-4E4F-AAC8-612D5E3554CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2E8F7EA-12C1-4E4F-AAC8-612D5E3554CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2E8F7EA-12C1-4E4F-AAC8-612D5E3554CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8344E754-B0BF-47DD-9E9C-81DBA54170D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8344E754-B0BF-47DD-9E9C-81DBA54170D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8344E754-B0BF-47DD-9E9C-81DBA54170D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8344E754-B0BF-47DD-9E9C-81DBA54170D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F63725A-B22D-4860-8976-EE3E3A4BBEDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F63725A-B22D-4860-8976-EE3E3A4BBEDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F63725A-B22D-4860-8976-EE3E3A4BBEDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F63725A-B22D-4860-8976-EE3E3A4BBEDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16E016B3-CFA7-4591-890B-2752FCCB2F45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16E016B3-CFA7-4591-890B-2752FCCB2F45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16E016B3-CFA7-4591-890B-2752FCCB2F45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16E016B3-CFA7-4591-890B-2752FCCB2F45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{568B4044-78C1-4F20-AADB-239223B66700}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{568B4044-78C1-4F20-AADB-239223B66700}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{568B4044-78C1-4F20-AADB-239223B66700}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{568B4044-78C1-4F20-AADB-239223B66700}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AD659BD-0C70-445F-ADC0-06417B01AFCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AD659BD-0C70-445F-ADC0-06417B01AFCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AD659BD-0C70-445F-ADC0-06417B01AFCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AD659BD-0C70-445F-ADC0-06417B01AFCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFE3B781-39D6-4F3A-A8AB-E55D83241896}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFE3B781-39D6-4F3A-A8AB-E55D83241896}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFE3B781-39D6-4F3A-A8AB-E55D83241896}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFE3B781-39D6-4F3A-A8AB-E55D83241896}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE36A8D0-0B3C-47A5-874B-913595E19248}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE36A8D0-0B3C-47A5-874B-913595E19248}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE36A8D0-0B3C-47A5-874B-913595E19248}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE36A8D0-0B3C-47A5-874B-913595E19248}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1613E73A-8635-4DAD-9200-BE0EE9DB196D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1613E73A-8635-4DAD-9200-BE0EE9DB196D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1613E73A-8635-4DAD-9200-BE0EE9DB196D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1613E73A-8635-4DAD-9200-BE0EE9DB196D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF785E34-46A9-4EF0-A8A0-6804C7EEA8F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF785E34-46A9-4EF0-A8A0-6804C7EEA8F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF785E34-46A9-4EF0-A8A0-6804C7EEA8F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF785E34-46A9-4EF0-A8A0-6804C7EEA8F8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8344E754-B0BF-47DD-9E9C-81DBA54170D1} = {2F6B6EE2-6897-449E-BE76-8A272A65C85C}
+		{3F63725A-B22D-4860-8976-EE3E3A4BBEDE} = {3E96FAF8-63D6-4433-9F81-EBDD6C411405}
+		{16E016B3-CFA7-4591-890B-2752FCCB2F45} = {6A21221A-E24E-4B36-8261-37FFD4B873E1}
+		{568B4044-78C1-4F20-AADB-239223B66700} = {6A21221A-E24E-4B36-8261-37FFD4B873E1}
+		{6AD659BD-0C70-445F-ADC0-06417B01AFCB} = {6A21221A-E24E-4B36-8261-37FFD4B873E1}
+		{BFE3B781-39D6-4F3A-A8AB-E55D83241896} = {E0D83936-BE6F-4866-98CB-B5353B11E2CA}
+		{EE36A8D0-0B3C-47A5-874B-913595E19248} = {E0D83936-BE6F-4866-98CB-B5353B11E2CA}
+		{1613E73A-8635-4DAD-9200-BE0EE9DB196D} = {E0D83936-BE6F-4866-98CB-B5353B11E2CA}
+		{CF785E34-46A9-4EF0-A8A0-6804C7EEA8F8} = {E0D83936-BE6F-4866-98CB-B5353B11E2CA}
+	EndGlobalSection
+EndGlobal

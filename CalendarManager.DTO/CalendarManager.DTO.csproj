@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BFE3B781-39D6-4F3A-A8AB-E55D83241896}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CalendarManager.DTO</RootNamespace>
+    <AssemblyName>CalendarManager.DTO</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseRequest\ChangeStatusRequest.cs" />
+    <Compile Include="BaseRequest\CsvRequest.cs" />
+    <Compile Include="BaseRequest\DeleteByParentRequest.cs" />
+    <Compile Include="BaseRequest\FindBaseRequest.cs" />
+    <Compile Include="BaseRequest\FindStatusRequest.cs" />
+    <Compile Include="BaseRequest\GetFileRequest.cs" />
+    <Compile Include="BaseRequest\IdentifierBaseRequest.cs" />
+    <Compile Include="BaseRequest\IsReferenceRequest.cs" />
+    <Compile Include="BaseRequest\LoginRequest.cs" />
+    <Compile Include="BaseRequest\LogoutRequest.cs" />
+    <Compile Include="BaseRequest\RelationRequest.cs" />
+    <Compile Include="BaseResponse\CreateResponse.cs" />
+    <Compile Include="BaseResponse\EnumeratorResponse.cs" />
+    <Compile Include="BaseResponse\ErrorResponse.cs" />
+    <Compile Include="BaseResponse\FindBaseResponse.cs" />
+    <Compile Include="BaseResponse\LoginResponse.cs" />
+    <Compile Include="BaseResponse\SuccessResponse.cs" />
+    <Compile Include="Message\Locations\DeleteLocationRequest.cs" />
+    <Compile Include="Message\Locations\FindLocationsRequest.cs" />
+    <Compile Include="Message\Locations\FindLocationsResponse.cs" />
+    <Compile Include="Message\Locations\GetLocationRequest.cs" />
+    <Compile Include="Message\Locations\LocationRequest.cs" />
+    <Compile Include="Message\Locations\LocationResponse.cs" />
+    <Compile Include="Message\Users\ChangeUserPasswordRequest.cs" />
+    <Compile Include="Message\Users\DeleteUserRequest.cs" />
+    <Compile Include="Message\Users\FindUsersRequest.cs" />
+    <Compile Include="Message\Users\FindUsersResponse.cs" />
+    <Compile Include="Message\Users\GetUserRequest.cs" />
+    <Compile Include="Message\Users\LoginUserRequest.cs" />
+    <Compile Include="Message\Users\LoginUserResponse.cs" />
+    <Compile Include="Message\Users\LogoutUserRequest.cs" />
+    <Compile Include="Message\Users\UserRequest.cs" />
+    <Compile Include="Message\Users\UserResponse.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CalendarManager.Infrastructure\CalendarManager.Infrastructure.csproj">
+      <Project>{3F63725A-B22D-4860-8976-EE3E3A4BBEDE}</Project>
+      <Name>CalendarManager.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
