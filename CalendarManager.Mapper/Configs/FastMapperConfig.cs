@@ -1,6 +1,7 @@
 ﻿using FastMapper;
 using CalendarManager.DTO.Message.Locations;
 using CalendarManager.DTO.Message.Users;
+using CalendarManager.Infrastructure.Dates;
 
 namespace CalendarManager.Mapper.Configs
 {
@@ -49,7 +50,9 @@ namespace CalendarManager.Mapper.Configs
                 .NewConfig();
 
             TypeAdapterConfig<Model.Location, LocationResponse>
-                .NewConfig();
+                .NewConfig()
+                .MapFrom(dest => dest.StartDate, src => src.StartDate.ToDateString())
+                .MapFrom(dest => dest.EndDate, src => src.EndDate.ToDateString()); ;
 
             #endregion
         }
