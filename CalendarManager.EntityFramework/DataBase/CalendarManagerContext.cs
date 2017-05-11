@@ -1,5 +1,6 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using CalendarManager.EntityFramework.Mappings;
 using CalendarManager.Model;
 
 namespace CalendarManager.EntityFramework.DataBase
@@ -10,6 +11,7 @@ namespace CalendarManager.EntityFramework.DataBase
         public CalendarManagerContext() : base("name=ConnectionStringCalendarManager")
         {
             Database.SetInitializer(new CreateDatabaseIfNotExists<CalendarManagerContext>());
+            Configuration.LazyLoadingEnabled = false;
         }
 
         public DbSet<User> User { get; set; }
@@ -17,7 +19,12 @@ namespace CalendarManager.EntityFramework.DataBase
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
+            modelBuilder.Configurations.Add(new UserMap());
+            modelBuilder.Configurations.Add(new LocationMap());
         }
     }
 }

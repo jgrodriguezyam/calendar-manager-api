@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 
 namespace CalendarManager.EntityFramework.DataBase
@@ -30,5 +31,6 @@ namespace CalendarManager.EntityFramework.DataBase
         IEnumerable<T> FindAll<T>();
         void InsertAll<T>(IEnumerable<T> objectsToInsert) where T : new();
         CalendarManagerContext GetDbContext();
+        IQueryable<T> GetQueryable<T>() where T : class;
     }
 }

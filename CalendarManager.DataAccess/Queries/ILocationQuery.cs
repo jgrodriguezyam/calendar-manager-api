@@ -1,17 +1,15 @@
-﻿using System.Collections.Generic;
-using CalendarManager.Infrastructure.IGenericQuery;
-using CalendarManager.Model;
+﻿using CalendarManager.Model;
 using CalendarManager.Model.Enums;
 
 namespace CalendarManager.DataAccess.Queries
 {
-    public interface ILocationQuery : IQuery
+    public interface ILocationQuery : IQuery<Location>
     {
-        void Init();
         void WithOnlyActivated(bool onlyActivated);
         void WithName(string name);
         void WithType(ELocationType type);
         void WithUser(int userId);
-        IEnumerable<Location> Execute();
+        void IncludeUser();
+        void IncludeSharedLocations();
     }
 }

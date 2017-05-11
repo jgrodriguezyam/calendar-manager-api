@@ -99,7 +99,6 @@
     <Compile Include="Hmac\HmacGenerator.cs" />
     <Compile Include="Http\HttpActionExtensions.cs" />
     <Compile Include="Http\HttpContextAccess.cs" />
-    <Compile Include="IGenericQuery\IQuery.cs" />
     <Compile Include="IGenericRepositories\IReadableRepository.cs" />
     <Compile Include="IGenericRepositories\IRepository.cs" />
     <Compile Include="IGenericRepositories\IWritableRepository.cs" />

@@ -1,9 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System.Data.Entity;
 using System.Linq;
 using CalendarManager.DataAccess.Queries;
 using CalendarManager.EntityFramework.DataBase;
 using CalendarManager.Infrastructure.Integers;
-using CalendarManager.Infrastructure.Queries;
 using CalendarManager.Infrastructure.Strings;
 using CalendarManager.Model;
 using CalendarManager.Model.Enums;
@@ -11,19 +10,12 @@ using CalendarManager.Infrastructure.Enums;
 
 namespace CalendarManager.EntityFramework.Queries
 {
-    public class UserQuery : IUserQuery
+    public class UserQuery : QueryBase<User>, IUserQuery
     {
-        private readonly IDataBaseSqlServerEntityFramework _dataBaseSqlServerEntityFramework;
-        public IQueryable<User> Query;
-
-        public UserQuery(IDataBaseSqlServerEntityFramework dataBaseSqlServerEntityFramework)
+        public UserQuery(IDataBaseSqlServerEntityFramework dataBaseSqlServerEntityFramework) 
+            : base(dataBaseSqlServerEntityFramework)
         {
-            _dataBaseSqlServerEntityFramework = dataBaseSqlServerEntityFramework;
-        }
 
-        public void Init()
-        {
-            Query = _dataBaseSqlServerEntityFramework.GetDbContext().Set<User>();
         }
 
         public void WithOnlyActivated(bool onlyActivated)
@@ -74,24 +66,14 @@ namespace CalendarManager.EntityFramework.Queries
                 Query = Query.Where(user => user.DeviceId == deviceId);
         }
 
-        public void Sort(string sort, string sortBy)
+        public void IncludeLocations()
         {
-            Query = QueryFactory.SortByPropertyResolver(sort, sortBy, Query);
+            Query = Query.Include(user => user.Locations);
         }
 
-        public void Paginate(int itemsToShow, int page)
+        public void IncludeSharedLocations()
         {
-            Query = QueryFactory.PaginationResolver(itemsToShow, page, Query);
-        }
-
-        public int TotalRecords()
-        {
-            return Query.Count();
-        }
-
-        public IEnumerable<User> Execute()
-        {
-            return Query.ToList();
+            Query = Query.Include(user => user.SharedLocations);
         }
     }
 }

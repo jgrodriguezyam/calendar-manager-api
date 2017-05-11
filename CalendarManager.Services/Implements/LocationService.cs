@@ -35,6 +35,7 @@ namespace CalendarManager.Services.Implements
                 _locationQuery.WithName(request.Name);
                 _locationQuery.WithType(request.Type.ConvertToEnum<ELocationType>());
                 _locationQuery.WithUser(request.UserId);
+                _locationQuery.IncludeUser();
                 _locationQuery.Sort(request.Sort, request.SortBy);
                 var totalRecords = _locationQuery.TotalRecords();
                 _locationQuery.Paginate(request.ItemsToShow, request.Page);

@@ -1,13 +1,10 @@
-﻿using System.Collections.Generic;
-using CalendarManager.Infrastructure.IGenericQuery;
-using CalendarManager.Model;
+﻿using CalendarManager.Model;
 using CalendarManager.Model.Enums;
 
 namespace CalendarManager.DataAccess.Queries
 {
-    public interface IUserQuery : IQuery
+    public interface IUserQuery : IQuery<User>
     {
-        void Init();
         void WithOnlyActivated(bool onlyActivated);
         void WithFirstName(string firstName);
         void WithLastName(string lastName);
@@ -16,6 +13,7 @@ namespace CalendarManager.DataAccess.Queries
         void WithCellNumber(long cellNumber);
         void WithUserName(string userName);
         void WithDevice(string deviceId);
-        IEnumerable<User> Execute();
+        void IncludeLocations();
+        void IncludeSharedLocations();
     }
 }

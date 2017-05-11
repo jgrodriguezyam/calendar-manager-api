@@ -39,6 +39,8 @@ namespace CalendarManager.Migrations.Sprint_01
                 .WithColumn("Longitude").AsDouble().NotNullable()
                 .WithColumn("Radius").AsDouble().NotNullable()
                 .WithColumn("Type").AsInt32().NotNullable()
+                .WithColumn("StartDate").AsDate().NotNullable()
+                .WithColumn("EndDate").AsDate().NotNullable()
                 .WithColumn("UserId").AsInt32().NotNullable()
 
                 .WithColumn("CreatedBy").AsInt32().NotNullable()
@@ -54,19 +56,26 @@ namespace CalendarManager.Migrations.Sprint_01
 
             #endregion
 
-            #region UserLocation
+            #region SharedLocation
 
-            Create.Table("UserLocation").InSchema("dbo")
+            Create.Table("SharedLocation").InSchema("dbo")
+                .WithColumn("Id").AsInt32().PrimaryKey().Identity().NotNullable()
                 .WithColumn("UserId").AsInt32().NotNullable()
-                .WithColumn("LocationId").AsInt32().NotNullable();
+                .WithColumn("LocationId").AsInt32().NotNullable()
 
-            Create.ForeignKey("FK_UserLocation_User").FromTable("UserLocation").InSchema("dbo").ForeignColumn("UserId")
+                .WithColumn("CreatedBy").AsInt32().NotNullable()
+                .WithColumn("ModifiedBy").AsInt32().NotNullable()
+                .WithColumn("CreatedOn").AsDateTime().NotNullable()
+                .WithColumn("ModifiedOn").AsDateTime().NotNullable()
+                .WithColumn("IsActive").AsBoolean();
+
+            Create.ForeignKey("FK_SharedLocation_User").FromTable("SharedLocation").InSchema("dbo").ForeignColumn("UserId")
                  .ToTable("User").InSchema("dbo").PrimaryColumn("Id");
-            Create.ForeignKey("FK_UserLocation_Location").FromTable("UserLocation").InSchema("dbo").ForeignColumn("LocationId")
+            Create.ForeignKey("FK_SharedLocation_Location").FromTable("SharedLocation").InSchema("dbo").ForeignColumn("LocationId")
                  .ToTable("Location").InSchema("dbo").PrimaryColumn("Id");
 
-            Create.Index("IX_User").OnTable("UserLocation").InSchema("dbo").OnColumn("UserId").Ascending();
-            Create.Index("IX_Location").OnTable("UserLocation").InSchema("dbo").OnColumn("LocationId").Ascending();
+            Create.Index("IX_User").OnTable("SharedLocation").InSchema("dbo").OnColumn("UserId").Ascending();
+            Create.Index("IX_Location").OnTable("SharedLocation").InSchema("dbo").OnColumn("LocationId").Ascending();
 
             #endregion
 
@@ -75,11 +84,11 @@ namespace CalendarManager.Migrations.Sprint_01
 
         public override void Down()
         {
-            #region UserLocation
+            #region SharedLocation
 
-            Delete.ForeignKey("FK_UserLocation_User").OnTable("UserLocation").InSchema("dbo");
-            Delete.ForeignKey("FK_UserLocation_Location").OnTable("UserLocation").InSchema("dbo");
-            Delete.Table("UserLocation").InSchema("dbo");
+            Delete.ForeignKey("FK_SharedLocation_User").OnTable("SharedLocation").InSchema("dbo");
+            Delete.ForeignKey("FK_SharedLocation_Location").OnTable("SharedLocation").InSchema("dbo");
+            Delete.Table("SharedLocation").InSchema("dbo");
 
             #endregion
 

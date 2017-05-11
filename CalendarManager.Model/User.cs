@@ -1,4 +1,5 @@
-﻿using CalendarManager.Infrastructure.Utils;
+﻿using System.Collections.Generic;
+using CalendarManager.Infrastructure.Utils;
 using CalendarManager.Model.Base;
 using CalendarManager.Model.Enums;
 
@@ -17,6 +18,8 @@ namespace CalendarManager.Model
         public string PublicKey { get; set; }
         public string Badge { get; set; }
         public string DeviceId { get; set; }
+        public virtual ICollection<Location> Locations { get; set; }
+        public virtual ICollection<SharedLocation> SharedLocations { get; set; }
 
         public bool IsActive { get; set; }
 

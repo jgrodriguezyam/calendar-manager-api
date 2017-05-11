@@ -1,4 +1,6 @@
-﻿namespace CalendarManager.DTO.Message.Locations
+﻿using CalendarManager.DTO.Message.Users;
+
+namespace CalendarManager.DTO.Message.Locations
 {
     public class LocationResponse
     {
@@ -8,6 +10,8 @@
         public double Longitude { get; set; }
         public double Radius { get; set; }
         public int Type { get; set; }
-        public int UserId { get; set; }
+        public string StartDate { get; set; }
+        public string EndDate { get; set; }
+        public UserResponse User { get; set; }
     }
 }

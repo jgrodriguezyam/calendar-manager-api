@@ -132,5 +132,10 @@ namespace CalendarManager.EntityFramework.DataBase
         {
             return DbContext;
         }
+
+        public IQueryable<T> GetQueryable<T>() where T : class
+        {
+            return DbContext.Set<T>();
+        }
     }
 }
