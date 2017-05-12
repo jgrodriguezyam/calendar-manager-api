@@ -151,6 +151,7 @@
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\LocationController.cs" />
+    <Compile Include="Controllers\SharedLocationController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Filters\ExceptionFilter.cs" />
     <Compile Include="Filters\SwaggerOperationFilter.cs" />

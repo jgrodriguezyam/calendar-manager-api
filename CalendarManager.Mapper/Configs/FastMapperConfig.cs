@@ -1,5 +1,6 @@
 ﻿using FastMapper;
 using CalendarManager.DTO.Message.Locations;
+using CalendarManager.DTO.Message.SharedLocations;
 using CalendarManager.DTO.Message.Users;
 using CalendarManager.Infrastructure.Dates;
 
@@ -53,6 +54,25 @@ namespace CalendarManager.Mapper.Configs
                 .NewConfig()
                 .MapFrom(dest => dest.StartDate, src => src.StartDate.ToDateString())
                 .MapFrom(dest => dest.EndDate, src => src.EndDate.ToDateString());
+
+            #endregion
+
+            #region SharedLocation
+
+            TypeAdapterConfig<Model.SharedLocation, Model.SharedLocation>
+                .NewConfig()
+                .IgnoreMember(dest => dest.Id)              
+                .IgnoreMember(dest => dest.CreatedBy)
+                .IgnoreMember(dest => dest.CreatedOn)
+                .IgnoreMember(dest => dest.ModifiedBy)
+                .IgnoreMember(dest => dest.ModifiedOn)
+                .IgnoreMember(dest => dest.IsActive);
+
+            TypeAdapterConfig<SharedLocationRequest, Model.SharedLocation>
+                .NewConfig();
+
+            TypeAdapterConfig<Model.SharedLocation, SharedLocationResponse>
+                .NewConfig();
 
             #endregion
         }

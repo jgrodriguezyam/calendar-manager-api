@@ -12,7 +12,8 @@ namespace CalendarManager.EntityFramework.Queries
 {
     public class LocationQuery : QueryBase<Location>, ILocationQuery
     {
-        public LocationQuery(IDataBaseSqlServerEntityFramework dataBaseSqlServerEntityFramework) : base(dataBaseSqlServerEntityFramework)
+        public LocationQuery(IDataBaseSqlServerEntityFramework dataBaseSqlServerEntityFramework) 
+            : base(dataBaseSqlServerEntityFramework)
         {
 
         }

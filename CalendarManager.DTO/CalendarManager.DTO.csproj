@@ -63,6 +63,12 @@
     <Compile Include="Message\Locations\GetLocationRequest.cs" />
     <Compile Include="Message\Locations\LocationRequest.cs" />
     <Compile Include="Message\Locations\LocationResponse.cs" />
+    <Compile Include="Message\SharedLocations\DeleteSharedLocationRequest.cs" />
+    <Compile Include="Message\SharedLocations\FindSharedLocationsRequest.cs" />
+    <Compile Include="Message\SharedLocations\FindSharedLocationsResponse.cs" />
+    <Compile Include="Message\SharedLocations\GetSharedLocationRequest.cs" />
+    <Compile Include="Message\SharedLocations\SharedLocationRequest.cs" />
+    <Compile Include="Message\SharedLocations\SharedLocationResponse.cs" />
     <Compile Include="Message\Users\ChangeUserPasswordRequest.cs" />
     <Compile Include="Message\Users\DeleteUserRequest.cs" />
     <Compile Include="Message\Users\FindUsersRequest.cs" />
