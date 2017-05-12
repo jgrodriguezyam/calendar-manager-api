@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using FastMapper;
 using CalendarManager.DataAccess.Queries;
 using CalendarManager.DataAccess.Repositories;
@@ -90,9 +91,13 @@ namespace CalendarManager.Services.Implements
         {
             try
             {
-                var location = _locationRepository.FindBy(request.Id);
+                _locationQuery.Init();
+                _locationQuery.WithOnlyActivated(true);
+                _locationQuery.WithId(request.Id);
+                _locationQuery.IncludeUser();
+                var location = _locationQuery.Execute().FirstOrDefault();
                 location.ThrowExceptionIfRecordIsNull();
-                return TypeAdapter.Adapt<LocationResponse>(location);
+                return TypeAdapter.Adapt<Location, LocationResponse>(location);
             }
             catch (DataAccessException)
             {

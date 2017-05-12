@@ -5,6 +5,7 @@ namespace CalendarManager.DataAccess.Queries
 {
     public interface ILocationQuery : IQuery<Location>
     {
+        void WithId(int id);
         void WithOnlyActivated(bool onlyActivated);
         void WithName(string name);
         void WithType(ELocationType type);

@@ -52,7 +52,7 @@ namespace CalendarManager.Mapper.Configs
             TypeAdapterConfig<Model.Location, LocationResponse>
                 .NewConfig()
                 .MapFrom(dest => dest.StartDate, src => src.StartDate.ToDateString())
-                .MapFrom(dest => dest.EndDate, src => src.EndDate.ToDateString()); ;
+                .MapFrom(dest => dest.EndDate, src => src.EndDate.ToDateString());
 
             #endregion
         }

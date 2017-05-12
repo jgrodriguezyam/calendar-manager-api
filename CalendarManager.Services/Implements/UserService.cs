@@ -102,7 +102,7 @@ namespace CalendarManager.Services.Implements
             {
                 var user = _userRepository.FindBy(request.Id);
                 user.ThrowExceptionIfRecordIsNull();
-                return TypeAdapter.Adapt<UserResponse>(user);
+                return TypeAdapter.Adapt<User, UserResponse>(user);
             }
             catch (DataAccessException)
             {

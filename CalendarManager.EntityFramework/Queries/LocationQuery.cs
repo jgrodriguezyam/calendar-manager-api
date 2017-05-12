@@ -17,6 +17,12 @@ namespace CalendarManager.EntityFramework.Queries
 
         }
 
+        public void WithId(int id)
+        {
+            if (id.IsNotZero())
+                Query = Query.Where(location => location.Id == id);
+        }
+
         public void WithOnlyActivated(bool onlyActivated)
         {
             if (onlyActivated)

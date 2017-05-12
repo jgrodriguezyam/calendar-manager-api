@@ -5,6 +5,7 @@ namespace CalendarManager.DataAccess.Queries
 {
     public interface IUserQuery : IQuery<User>
     {
+        void WithId(int id);
         void WithOnlyActivated(bool onlyActivated);
         void WithFirstName(string firstName);
         void WithLastName(string lastName);
