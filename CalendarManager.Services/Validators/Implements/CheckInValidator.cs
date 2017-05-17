@@ -68,6 +68,12 @@ namespace CalendarManager.Services.Validators.Implements
             if (checkIns.IsNotEmpty())
                 return new ValidationFailure("CheckIn", "Ya te registraste hoy");
 
+            var locationForToday = _locationRepository.FindBy(currentLocation => 
+                                        currentLocation.Id == checkIn.LocationId &&
+                                        currentLocation.StartDate <= today && currentLocation.EndDate >= today);
+            if (locationForToday.IsEmpty())
+                return new ValidationFailure("CheckIn", "La ubicación no esta disponible hoy");
+
             return null;
         }
     }
