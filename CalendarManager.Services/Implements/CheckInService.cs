@@ -39,6 +39,8 @@ namespace CalendarManager.Services.Implements
                 _checkInQuery.WithType(request.Type.ConvertToEnum<ECheckInType>());
                 _checkInQuery.WithUser(request.UserId);
                 _checkInQuery.WithLocation(request.LocationId);
+                _checkInQuery.WithCreatedOnlyToday(request.CreatedOnlyToday);
+                _checkInQuery.WithCreatedDate(request.CreatedDate);
                 _checkInQuery.IncludeUser();
                 _checkInQuery.IncludeLocation();
                 _checkInQuery.Sort(request.Sort, request.SortBy);

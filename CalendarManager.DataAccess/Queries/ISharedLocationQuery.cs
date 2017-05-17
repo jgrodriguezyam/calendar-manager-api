@@ -8,6 +8,8 @@ namespace CalendarManager.DataAccess.Queries
         void WithOnlyActivated(bool onlyActivated);
         void WithUser(int userId);
         void WithLocation(int locationId);
+        void WithLocationOnlyToday(bool onlyToday);
+        void WithLocationDate(string date);
         void IncludeUser();
         void IncludeLocation();
     }

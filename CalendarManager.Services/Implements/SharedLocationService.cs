@@ -33,6 +33,8 @@ namespace CalendarManager.Services.Implements
                 _sharedLocationQuery.WithOnlyActivated(true);
                 _sharedLocationQuery.WithUser(request.UserId);
                 _sharedLocationQuery.WithLocation(request.LocationId);
+                _sharedLocationQuery.WithLocationOnlyToday(request.LocationOnlyToday);
+                _sharedLocationQuery.WithLocationDate(request.LocationDate);
                 _sharedLocationQuery.IncludeUser();
                 _sharedLocationQuery.IncludeLocation();
                 _sharedLocationQuery.Sort(request.Sort, request.SortBy);

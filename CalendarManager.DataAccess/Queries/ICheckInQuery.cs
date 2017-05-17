@@ -10,6 +10,8 @@ namespace CalendarManager.DataAccess.Queries
         void WithType(ECheckInType type);
         void WithUser(int userId);
         void WithLocation(int locationId);
+        void WithCreatedOnlyToday(bool onlyToday);
+        void WithCreatedDate(string date);
         void IncludeUser();
         void IncludeLocation();
     }

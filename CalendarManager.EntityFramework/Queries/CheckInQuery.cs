@@ -1,9 +1,12 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Linq;
 using CalendarManager.DataAccess.Queries;
 using CalendarManager.EntityFramework.DataBase;
+using CalendarManager.Infrastructure.Dates;
 using CalendarManager.Infrastructure.Enums;
 using CalendarManager.Infrastructure.Integers;
+using CalendarManager.Infrastructure.Strings;
 using CalendarManager.Model;
 using CalendarManager.Model.Enums;
 
@@ -44,6 +47,24 @@ namespace CalendarManager.EntityFramework.Queries
         {
             if (locationId.IsNotZero())
                 Query = Query.Where(checkIn => checkIn.LocationId == locationId);
+        }
+
+        public void WithCreatedOnlyToday(bool onlyToday)
+        {
+            if (onlyToday)
+            {
+                var today = DateTime.Now.Date;
+                Query = Query.Where(location => DbFunctions.TruncateTime(location.CreatedOn) == today);
+            }
+        }
+
+        public void WithCreatedDate(string date)
+        {
+            if (date.IsNotNullOrEmpty())
+            {
+                var dateFilter = date.DateStringToDateTime().Date;
+                Query = Query.Where(location => DbFunctions.TruncateTime(location.CreatedOn) == dateFilter);
+            }
         }
 
         public void IncludeUser()

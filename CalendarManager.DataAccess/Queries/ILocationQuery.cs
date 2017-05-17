@@ -10,6 +10,8 @@ namespace CalendarManager.DataAccess.Queries
         void WithName(string name);
         void WithType(ELocationType type);
         void WithUser(int userId);
+        void WithOnlyToday(bool onlyToday);
+        void WithDate(string date);
         void IncludeUser();
         void IncludeSharedLocations();
     }

@@ -7,5 +7,7 @@ namespace CalendarManager.DTO.Message.Locations
         public string Name { get; set; }
         public int Type { get; set; }
         public int UserId { get; set; }
+        public bool OnlyToday { get; set; }
+        public string Date { get; set; }
     }
 }
