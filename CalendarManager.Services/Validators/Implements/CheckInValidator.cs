@@ -71,6 +71,7 @@ namespace CalendarManager.Services.Validators.Implements
             var locationForToday = _locationRepository.FindBy(currentLocation => 
                                         currentLocation.Id == checkIn.LocationId &&
                                         currentLocation.StartDate <= today && currentLocation.EndDate >= today);
+
             if (locationForToday.IsEmpty())
                 return new ValidationFailure("CheckIn", "La ubicación no esta disponible hoy");
 
