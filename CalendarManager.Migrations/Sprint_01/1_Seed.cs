@@ -79,11 +79,43 @@ namespace CalendarManager.Migrations.Sprint_01
 
             #endregion
 
+            #region CheckIn
+
+            Create.Table("CheckIn").InSchema("dbo")
+                .WithColumn("Id").AsInt32().PrimaryKey().Identity().NotNullable()
+                .WithColumn("Type").AsInt32().NotNullable()
+                .WithColumn("UserId").AsInt32().NotNullable()
+                .WithColumn("LocationId").AsInt32().NotNullable()
+
+                .WithColumn("CreatedBy").AsInt32().NotNullable()
+                .WithColumn("ModifiedBy").AsInt32().NotNullable()
+                .WithColumn("CreatedOn").AsDateTime().NotNullable()
+                .WithColumn("ModifiedOn").AsDateTime().NotNullable()
+                .WithColumn("IsActive").AsBoolean();
+
+            Create.ForeignKey("FK_CheckIn_User").FromTable("CheckIn").InSchema("dbo").ForeignColumn("UserId")
+                 .ToTable("User").InSchema("dbo").PrimaryColumn("Id");
+            Create.ForeignKey("FK_CheckIn_Location").FromTable("CheckIn").InSchema("dbo").ForeignColumn("LocationId")
+                 .ToTable("Location").InSchema("dbo").PrimaryColumn("Id");
+
+            Create.Index("IX_User").OnTable("CheckIn").InSchema("dbo").OnColumn("UserId").Ascending();
+            Create.Index("IX_Location").OnTable("CheckIn").InSchema("dbo").OnColumn("LocationId").Ascending();
+
+            #endregion
+
             //Execute.Sql("alter database CalendarManager set allow_snapshot_isolation on");
         }
 
         public override void Down()
         {
+            #region CheckIn
+
+            Delete.ForeignKey("FK_CheckIn_User").OnTable("CheckIn").InSchema("dbo");
+            Delete.ForeignKey("FK_CheckIn_Location").OnTable("CheckIn").InSchema("dbo");
+            Delete.Table("CheckIn").InSchema("dbo");
+
+            #endregion
+
             #region SharedLocation
 
             Delete.ForeignKey("FK_SharedLocation_User").OnTable("SharedLocation").InSchema("dbo");

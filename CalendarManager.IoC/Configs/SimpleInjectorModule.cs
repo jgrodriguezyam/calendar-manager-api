@@ -62,6 +62,11 @@ namespace CalendarManager.IoC.Configs
             _container.Register<ISharedLocationQuery, SharedLocationQuery>();
             _container.Register<ISharedLocationValidator, SharedLocationValidator>();
             _container.Register<ISharedLocationService, SharedLocationService>();
+
+            _container.Register<ICheckInRepository, CheckInRepository>();
+            _container.Register<ICheckInQuery, CheckInQuery>();
+            _container.Register<ICheckInValidator, CheckInValidator>();
+            _container.Register<ICheckInService, CheckInService>();
         }
     }
 }

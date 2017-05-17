@@ -34,4 +34,16 @@ namespace CalendarManager.EntityFramework.Mappings
             HasRequired(sharedLocation => sharedLocation.Location).WithMany(location => location.SharedLocations).HasForeignKey(sharedLocation => sharedLocation.LocationId);
         }
     }
+
+    public class CheckInMap : EntityTypeConfiguration<CheckIn>
+    {
+        public CheckInMap()
+        {
+            ToTable("CheckIn").HasKey(checkIn => checkIn.Id);
+            Property(checkIn => checkIn.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
+            HasRequired(checkIn => checkIn.User).WithMany(user => user.CheckIns).HasForeignKey(checkIn => checkIn.UserId);
+            HasRequired(checkIn => checkIn.Location).WithMany(location => location.CheckIns).HasForeignKey(checkIn => checkIn.LocationId);
+        }
+    }
 }

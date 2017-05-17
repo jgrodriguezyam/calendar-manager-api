@@ -1,4 +1,5 @@
-﻿using FastMapper;
+﻿using CalendarManager.DTO.Message.CheckIns;
+using FastMapper;
 using CalendarManager.DTO.Message.Locations;
 using CalendarManager.DTO.Message.SharedLocations;
 using CalendarManager.DTO.Message.Users;
@@ -72,6 +73,27 @@ namespace CalendarManager.Mapper.Configs
                 .NewConfig();
 
             TypeAdapterConfig<Model.SharedLocation, SharedLocationResponse>
+                .NewConfig();
+
+            #endregion
+
+            #region CheckIn
+
+            TypeAdapterConfig<Model.CheckIn, Model.CheckIn>
+                .NewConfig()
+                .IgnoreMember(dest => dest.Id)
+                .IgnoreMember(dest => dest.Type)
+                .IgnoreMember(dest => dest.CreatedBy)
+                .IgnoreMember(dest => dest.CreatedOn)
+                .IgnoreMember(dest => dest.ModifiedBy)
+                .IgnoreMember(dest => dest.ModifiedOn)
+                .IgnoreMember(dest => dest.IsActive);
+
+            TypeAdapterConfig<CheckInRequest, Model.CheckIn>
+                .NewConfig()
+                .IgnoreMember(dest => dest.Type);
+
+            TypeAdapterConfig<Model.CheckIn, CheckInResponse>
                 .NewConfig();
 
             #endregion

@@ -16,6 +16,8 @@ namespace CalendarManager.EntityFramework.DataBase
 
         public DbSet<User> User { get; set; }
         public DbSet<Location> Location { get; set; }
+        public DbSet<SharedLocation> SharedLocation { get; set; }
+        public DbSet<CheckIn> CheckIn { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -25,6 +27,8 @@ namespace CalendarManager.EntityFramework.DataBase
 
             modelBuilder.Configurations.Add(new UserMap());
             modelBuilder.Configurations.Add(new LocationMap());
+            modelBuilder.Configurations.Add(new SharedLocationMap());
+            modelBuilder.Configurations.Add(new CheckInMap());
         }
     }
 }

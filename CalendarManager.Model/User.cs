@@ -20,6 +20,7 @@ namespace CalendarManager.Model
         public string DeviceId { get; set; }
         public virtual ICollection<Location> Locations { get; set; }
         public virtual ICollection<SharedLocation> SharedLocations { get; set; }
+        public virtual ICollection<CheckIn> CheckIns { get; set; } 
 
         public bool IsActive { get; set; }
 

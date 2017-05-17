@@ -57,6 +57,12 @@
     <Compile Include="BaseResponse\FindBaseResponse.cs" />
     <Compile Include="BaseResponse\LoginResponse.cs" />
     <Compile Include="BaseResponse\SuccessResponse.cs" />
+    <Compile Include="Message\CheckIns\CheckInRequest.cs" />
+    <Compile Include="Message\CheckIns\CheckInResponse.cs" />
+    <Compile Include="Message\CheckIns\DeleteCheckInRequest.cs" />
+    <Compile Include="Message\CheckIns\FindCheckInsRequest.cs" />
+    <Compile Include="Message\CheckIns\FindCheckInsResponse.cs" />
+    <Compile Include="Message\CheckIns\GetCheckInRequest.cs" />
     <Compile Include="Message\Locations\DeleteLocationRequest.cs" />
     <Compile Include="Message\Locations\FindLocationsRequest.cs" />
     <Compile Include="Message\Locations\FindLocationsResponse.cs" />

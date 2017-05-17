@@ -44,10 +44,12 @@
     <Compile Include="Listeners\EEventType.cs" />
     <Compile Include="Listeners\IAuditEventListener.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\ICheckInQuery.cs" />
     <Compile Include="Queries\ILocationQuery.cs" />
     <Compile Include="Queries\IQuery.cs" />
     <Compile Include="Queries\ISharedLocationQuery.cs" />
     <Compile Include="Queries\IUserQuery.cs" />
+    <Compile Include="Repositories\ICheckInRepository.cs" />
     <Compile Include="Repositories\ILocationRepository.cs" />
     <Compile Include="Repositories\ISharedLocationRepository.cs" />
     <Compile Include="Repositories\IUserRepository.cs" />

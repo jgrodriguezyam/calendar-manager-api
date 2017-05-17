@@ -77,7 +77,22 @@ CREATE INDEX [IX_User] ON [dbo].[SharedLocation] ([UserId] ASC)
 /* CreateIndex SharedLocation (LocationId) */
 CREATE INDEX [IX_Location] ON [dbo].[SharedLocation] ([LocationId] ASC)
 
-INSERT INTO [dbo].[VersionInfo] ([Version], [AppliedOn], [Description]) VALUES (1, '2017-05-11T22:17:15', '_1_Seed')
+/* CreateTable CheckIn */
+CREATE TABLE [dbo].[CheckIn] ([Id] INT NOT NULL IDENTITY(1,1), [Type] INT NOT NULL, [UserId] INT NOT NULL, [LocationId] INT NOT NULL, [CreatedBy] INT NOT NULL, [ModifiedBy] INT NOT NULL, [CreatedOn] DATETIME NOT NULL, [ModifiedOn] DATETIME NOT NULL, [IsActive] BIT NOT NULL, CONSTRAINT [PK_CheckIn] PRIMARY KEY ([Id]))
+
+/* CreateForeignKey FK_CheckIn_User CheckIn(UserId) User(Id) */
+ALTER TABLE [dbo].[CheckIn] ADD CONSTRAINT [FK_CheckIn_User] FOREIGN KEY ([UserId]) REFERENCES [dbo].[User] ([Id])
+
+/* CreateForeignKey FK_CheckIn_Location CheckIn(LocationId) Location(Id) */
+ALTER TABLE [dbo].[CheckIn] ADD CONSTRAINT [FK_CheckIn_Location] FOREIGN KEY ([LocationId]) REFERENCES [dbo].[Location] ([Id])
+
+/* CreateIndex CheckIn (UserId) */
+CREATE INDEX [IX_User] ON [dbo].[CheckIn] ([UserId] ASC)
+
+/* CreateIndex CheckIn (LocationId) */
+CREATE INDEX [IX_Location] ON [dbo].[CheckIn] ([LocationId] ASC)
+
+INSERT INTO [dbo].[VersionInfo] ([Version], [AppliedOn], [Description]) VALUES (1, '2017-05-17T21:20:31', '_1_Seed')
 /* Committing Transaction */
 /* 1: _1_Seed migrated */
 

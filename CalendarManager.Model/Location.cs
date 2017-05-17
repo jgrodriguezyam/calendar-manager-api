@@ -17,7 +17,8 @@ namespace CalendarManager.Model
         public DateTime EndDate { get; set; }
         public int UserId { get; set; }
         public virtual User User { get; set; }
-        public ICollection<SharedLocation> SharedLocations { get; set; }
+        public virtual ICollection<SharedLocation> SharedLocations { get; set; }
+        public virtual ICollection<CheckIn> CheckIns { get; set; }
 
         public bool IsActive { get; set; }
     }

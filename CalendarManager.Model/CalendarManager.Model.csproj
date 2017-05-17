@@ -44,6 +44,8 @@
     <Compile Include="Base\IAuditInfo.cs" />
     <Compile Include="Base\IChangeStatus.cs" />
     <Compile Include="Base\IDeletable.cs" />
+    <Compile Include="CheckIn.cs" />
+    <Compile Include="Enums\ECheckInType.cs" />
     <Compile Include="Enums\EGenderType.cs" />
     <Compile Include="Enums\ELocationType.cs" />
     <Compile Include="Location.cs" />
