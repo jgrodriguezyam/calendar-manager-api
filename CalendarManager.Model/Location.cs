@@ -15,6 +15,7 @@ namespace CalendarManager.Model
         public ELocationType Type { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
+        public string Comment { get; set; }
         public int UserId { get; set; }
         public virtual User User { get; set; }
         public virtual ICollection<SharedLocation> SharedLocations { get; set; }

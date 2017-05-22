@@ -12,6 +12,7 @@ namespace CalendarManager.DTO.Message.Locations
         public int Type { get; set; }
         public string StartDate { get; set; }
         public string EndDate { get; set; }
+        public string Comment { get; set; }
         public UserResponse User { get; set; }
     }
 }

@@ -41,6 +41,7 @@ namespace CalendarManager.Migrations.Sprint_01
                 .WithColumn("Type").AsInt32().NotNullable()
                 .WithColumn("StartDate").AsDate().NotNullable()
                 .WithColumn("EndDate").AsDate().NotNullable()
+                .WithColumn("Comment").AsString(250).Nullable()
                 .WithColumn("UserId").AsInt32().NotNullable()
 
                 .WithColumn("CreatedBy").AsInt32().NotNullable()

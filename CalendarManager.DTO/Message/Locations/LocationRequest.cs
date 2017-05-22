@@ -10,6 +10,7 @@
         public int Type { get; set; }
         public string StartDate { get; set; }
         public string EndDate { get; set; }
+        public string Comment { get; set; }
         public int UserId { get; set; }
     }
 }

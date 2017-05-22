@@ -54,7 +54,7 @@ CREATE UNIQUE INDEX [IX_User_UserName] ON [dbo].[User] ([UserName] ASC)
 CREATE UNIQUE INDEX [IX_User_Badge] ON [dbo].[User] ([Badge] ASC)
 
 /* CreateTable Location */
-CREATE TABLE [dbo].[Location] ([Id] INT NOT NULL IDENTITY(1,1), [Name] NVARCHAR(250) NOT NULL, [Latitude] DOUBLE PRECISION NOT NULL, [Longitude] DOUBLE PRECISION NOT NULL, [Radius] DOUBLE PRECISION NOT NULL, [Type] INT NOT NULL, [StartDate] DATE NOT NULL, [EndDate] DATE NOT NULL, [UserId] INT NOT NULL, [CreatedBy] INT NOT NULL, [ModifiedBy] INT NOT NULL, [CreatedOn] DATETIME NOT NULL, [ModifiedOn] DATETIME NOT NULL, [IsActive] BIT NOT NULL, CONSTRAINT [PK_Location] PRIMARY KEY ([Id]))
+CREATE TABLE [dbo].[Location] ([Id] INT NOT NULL IDENTITY(1,1), [Name] NVARCHAR(250) NOT NULL, [Latitude] DOUBLE PRECISION NOT NULL, [Longitude] DOUBLE PRECISION NOT NULL, [Radius] DOUBLE PRECISION NOT NULL, [Type] INT NOT NULL, [StartDate] DATE NOT NULL, [EndDate] DATE NOT NULL, [Comment] NVARCHAR(250), [UserId] INT NOT NULL, [CreatedBy] INT NOT NULL, [ModifiedBy] INT NOT NULL, [CreatedOn] DATETIME NOT NULL, [ModifiedOn] DATETIME NOT NULL, [IsActive] BIT NOT NULL, CONSTRAINT [PK_Location] PRIMARY KEY ([Id]))
 
 /* CreateForeignKey FK_Location_User Location(UserId) User(Id) */
 ALTER TABLE [dbo].[Location] ADD CONSTRAINT [FK_Location_User] FOREIGN KEY ([UserId]) REFERENCES [dbo].[User] ([Id])
@@ -92,7 +92,7 @@ CREATE INDEX [IX_User] ON [dbo].[CheckIn] ([UserId] ASC)
 /* CreateIndex CheckIn (LocationId) */
 CREATE INDEX [IX_Location] ON [dbo].[CheckIn] ([LocationId] ASC)
 
-INSERT INTO [dbo].[VersionInfo] ([Version], [AppliedOn], [Description]) VALUES (1, '2017-05-17T21:20:31', '_1_Seed')
+INSERT INTO [dbo].[VersionInfo] ([Version], [AppliedOn], [Description]) VALUES (1, '2017-05-22T16:22:23', '_1_Seed')
 /* Committing Transaction */
 /* 1: _1_Seed migrated */
 
