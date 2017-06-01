@@ -15,6 +15,12 @@ namespace CalendarManager.Controllers
             return new IsAliveResponse { IsSuccess = true, Date = DateTime.Now.Date.ToDateString() };
         }
 
+        [HttpGet, Route("date")]
+        public DateResponse GetDate()
+        {
+            return new DateResponse { Date = DateTime.Now.Date.ToDateString() };
+        }
+
         [HttpGet, Route("error-codes")]
         public EnumeratorResponse ErrorCode()
         {

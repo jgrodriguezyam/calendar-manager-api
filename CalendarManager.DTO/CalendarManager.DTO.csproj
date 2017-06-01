@@ -52,6 +52,7 @@
     <Compile Include="BaseRequest\LogoutRequest.cs" />
     <Compile Include="BaseRequest\RelationRequest.cs" />
     <Compile Include="BaseResponse\CreateResponse.cs" />
+    <Compile Include="BaseResponse\DateResponse.cs" />
     <Compile Include="BaseResponse\EnumeratorResponse.cs" />
     <Compile Include="BaseResponse\ErrorResponse.cs" />
     <Compile Include="BaseResponse\FindBaseResponse.cs" />
