@@ -55,6 +55,7 @@
     <Compile Include="BaseResponse\EnumeratorResponse.cs" />
     <Compile Include="BaseResponse\ErrorResponse.cs" />
     <Compile Include="BaseResponse\FindBaseResponse.cs" />
+    <Compile Include="BaseResponse\IsAliveResponse.cs" />
     <Compile Include="BaseResponse\LoginResponse.cs" />
     <Compile Include="BaseResponse\SuccessResponse.cs" />
     <Compile Include="Message\CheckIns\CheckInRequest.cs" />
