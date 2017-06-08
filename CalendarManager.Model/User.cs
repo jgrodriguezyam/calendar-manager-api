@@ -18,6 +18,7 @@ namespace CalendarManager.Model
         public string PublicKey { get; set; }
         public string Badge { get; set; }
         public string DeviceId { get; set; }
+        public string ImagePath { get; set; }
         public virtual ICollection<Location> Locations { get; set; }
         public virtual ICollection<SharedLocation> SharedLocations { get; set; }
         public virtual ICollection<CheckIn> CheckIns { get; set; } 

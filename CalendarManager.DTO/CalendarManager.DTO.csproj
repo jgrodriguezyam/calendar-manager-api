@@ -77,6 +77,8 @@
     <Compile Include="Message\SharedLocations\GetSharedLocationRequest.cs" />
     <Compile Include="Message\SharedLocations\SharedLocationRequest.cs" />
     <Compile Include="Message\SharedLocations\SharedLocationResponse.cs" />
+    <Compile Include="Message\Users\AddImageUserRequest.cs" />
+    <Compile Include="Message\Users\AddImageUserResponse.cs" />
     <Compile Include="Message\Users\ChangeUserPasswordRequest.cs" />
     <Compile Include="Message\Users\DeleteUserRequest.cs" />
     <Compile Include="Message\Users\FindUsersRequest.cs" />

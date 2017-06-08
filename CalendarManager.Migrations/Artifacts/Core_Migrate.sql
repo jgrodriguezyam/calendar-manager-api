@@ -39,7 +39,7 @@ ALTER TABLE [dbo].[VersionInfo] ADD [Description] NVARCHAR(1024)
 
 /* Beginning Transaction */
 /* CreateTable User */
-CREATE TABLE [dbo].[User] ([Id] INT NOT NULL IDENTITY(1,1), [FirstName] NVARCHAR(250) NOT NULL, [LastName] NVARCHAR(250) NOT NULL, [GenderType] INT NOT NULL, [Email] NVARCHAR(250) NOT NULL, [CellNumber] BIGINT NOT NULL, [UserName] NVARCHAR(250) NOT NULL, [Password] NVARCHAR(250) NOT NULL, [PublicKey] NVARCHAR(250), [Badge] NVARCHAR(250) NOT NULL, [DeviceId] NVARCHAR(250), [CreatedBy] INT NOT NULL, [ModifiedBy] INT NOT NULL, [CreatedOn] DATETIME NOT NULL, [ModifiedOn] DATETIME NOT NULL, [IsActive] BIT NOT NULL, CONSTRAINT [PK_User] PRIMARY KEY ([Id]))
+CREATE TABLE [dbo].[User] ([Id] INT NOT NULL IDENTITY(1,1), [FirstName] NVARCHAR(250) NOT NULL, [LastName] NVARCHAR(250) NOT NULL, [GenderType] INT NOT NULL, [Email] NVARCHAR(250) NOT NULL, [CellNumber] BIGINT NOT NULL, [UserName] NVARCHAR(250) NOT NULL, [Password] NVARCHAR(250) NOT NULL, [PublicKey] NVARCHAR(250), [Badge] NVARCHAR(250) NOT NULL, [DeviceId] NVARCHAR(250), [ImagePath] NVARCHAR(250), [CreatedBy] INT NOT NULL, [ModifiedBy] INT NOT NULL, [CreatedOn] DATETIME NOT NULL, [ModifiedOn] DATETIME NOT NULL, [IsActive] BIT NOT NULL, CONSTRAINT [PK_User] PRIMARY KEY ([Id]))
 
 /* CreateIndex User (Email) */
 CREATE UNIQUE INDEX [IX_User_Email] ON [dbo].[User] ([Email] ASC)
@@ -92,7 +92,7 @@ CREATE INDEX [IX_User] ON [dbo].[CheckIn] ([UserId] ASC)
 /* CreateIndex CheckIn (LocationId) */
 CREATE INDEX [IX_Location] ON [dbo].[CheckIn] ([LocationId] ASC)
 
-INSERT INTO [dbo].[VersionInfo] ([Version], [AppliedOn], [Description]) VALUES (1, '2017-05-22T16:22:23', '_1_Seed')
+INSERT INTO [dbo].[VersionInfo] ([Version], [AppliedOn], [Description]) VALUES (1, '2017-06-05T18:17:14', '_1_Seed')
 /* Committing Transaction */
 /* 1: _1_Seed migrated */
 

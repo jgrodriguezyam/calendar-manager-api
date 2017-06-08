@@ -70,16 +70,16 @@ namespace CalendarManager.Services.Validators.Implements
 
         public ValidationFailure CreateValidate(User user, ValidationContext<User> context)
         {
-            var workersByEmail = _userRepository.FindBy(currentUser => currentUser.Email == user.Email && currentUser.IsActive);
-            if (workersByEmail.IsNotEmpty())
+            var usersByEmail = _userRepository.FindBy(currentUser => currentUser.Email == user.Email && currentUser.IsActive);
+            if (usersByEmail.IsNotEmpty())
                 return new ValidationFailure("User", "Ya existe el correo registrado");
 
-            var workersByCellNumber = _userRepository.FindBy(currentUser => currentUser.CellNumber == user.CellNumber && currentUser.IsActive);
-            if (workersByCellNumber.IsNotEmpty())
+            var usersByCellNumber = _userRepository.FindBy(currentUser => currentUser.CellNumber == user.CellNumber && currentUser.IsActive);
+            if (usersByCellNumber.IsNotEmpty())
                 return new ValidationFailure("User", "Ya existe el telefono registrado");
 
-            var workersByUserName = _userRepository.FindBy(currentUser => currentUser.UserName == user.UserName && currentUser.IsActive);
-            if (workersByUserName.IsNotEmpty())
+            var usersByUserName = _userRepository.FindBy(currentUser => currentUser.UserName == user.UserName && currentUser.IsActive);
+            if (usersByUserName.IsNotEmpty())
                 return new ValidationFailure("User", "Ya existe el nombre de usuario");
 
             return null;
@@ -87,16 +87,16 @@ namespace CalendarManager.Services.Validators.Implements
 
         public ValidationFailure UpdateValidate(User user, ValidationContext<User> context)
         {
-            var workersByEmail = _userRepository.FindBy(currentUser => currentUser.Email == user.Email && currentUser.Id != user.Id && currentUser.IsActive);
-            if (workersByEmail.IsNotEmpty())
+            var usersByEmail = _userRepository.FindBy(currentUser => currentUser.Email == user.Email && currentUser.Id != user.Id && currentUser.IsActive);
+            if (usersByEmail.IsNotEmpty())
                 return new ValidationFailure("User", "Ya existe el correo registrado");
 
-            var workersByCellNumber = _userRepository.FindBy(currentUser => currentUser.CellNumber == user.CellNumber && currentUser.Id != user.Id && currentUser.IsActive);
-            if (workersByCellNumber.IsNotEmpty())
+            var usersByCellNumber = _userRepository.FindBy(currentUser => currentUser.CellNumber == user.CellNumber && currentUser.Id != user.Id && currentUser.IsActive);
+            if (usersByCellNumber.IsNotEmpty())
                 return new ValidationFailure("User", "Ya existe el telefono registrado");
 
-            var workersByUserName = _userRepository.FindBy(currentUser => currentUser.UserName == user.UserName && currentUser.Id != user.Id && currentUser.IsActive);
-            if (workersByUserName.IsNotEmpty())
+            var usersByUserName = _userRepository.FindBy(currentUser => currentUser.UserName == user.UserName && currentUser.Id != user.Id && currentUser.IsActive);
+            if (usersByUserName.IsNotEmpty())
                 return new ValidationFailure("User", "Ya existe el nombre de usuario");
 
             return null;

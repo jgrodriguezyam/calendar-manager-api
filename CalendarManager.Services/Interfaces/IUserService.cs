@@ -1,5 +1,6 @@
 ﻿using CalendarManager.DTO.BaseResponse;
 using CalendarManager.DTO.Message.Users;
+using CalendarManager.Infrastructure.Files;
 
 namespace CalendarManager.Services.Interfaces
 {
@@ -13,5 +14,6 @@ namespace CalendarManager.Services.Interfaces
         LoginUserResponse Login(LoginUserRequest request);
         SuccessResponse Logout(LogoutUserRequest request);
         SuccessResponse ChangePassword(ChangeUserPasswordRequest request);
+        AddImageUserResponse AddImage(AddImageUserRequest request, File file);
     }
 }

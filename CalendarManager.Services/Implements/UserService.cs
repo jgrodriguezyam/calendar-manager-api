@@ -7,6 +7,7 @@ using CalendarManager.DataAccess.Repositories;
 using CalendarManager.DTO.BaseResponse;
 using CalendarManager.DTO.Message.Users;
 using CalendarManager.Infrastructure.Exceptions;
+using CalendarManager.Infrastructure.Files;
 using CalendarManager.Infrastructure.Integers;
 using CalendarManager.Infrastructure.Utils;
 using CalendarManager.Model;
@@ -23,12 +24,14 @@ namespace CalendarManager.Services.Implements
         private readonly IUserQuery _userQuery;
         private readonly IUserRepository _userRepository;
         private readonly IUserValidator _userValidator;
+        private readonly IStorageProvider _storageProvider;
 
-        public UserService(IUserQuery userQuery, IUserRepository userRepository, IUserValidator userValidator)
+        public UserService(IUserQuery userQuery, IUserRepository userRepository, IUserValidator userValidator, IStorageProvider storageProvider)
         {
             _userQuery = userQuery;
             _userRepository = userRepository;
             _userValidator = userValidator;
+            _storageProvider = storageProvider;
         }
 
         public FindUsersResponse Find(FindUsersRequest request)
@@ -170,6 +173,23 @@ namespace CalendarManager.Services.Implements
                 userToUpdate.EncryptPassword();
                 _userRepository.Update(userToUpdate);
                 return new SuccessResponse { IsSuccess = true };
+            }
+            catch (DataAccessException)
+            {
+                throw new ApplicationException();
+            }
+        }
+
+        public AddImageUserResponse AddImage(AddImageUserRequest request, File file)
+        {
+            try
+            {
+                var user = _userRepository.FindBy(request.Id);
+                var savedFilePath = _storageProvider.Save(file);
+                user.ImagePath = savedFilePath;
+                _userRepository.Update(user);
+                var userResponse = TypeAdapter.Adapt<User, UserResponse>(user);
+                return new AddImageUserResponse(userResponse.ImagePath);
             }
             catch (DataAccessException)
             {

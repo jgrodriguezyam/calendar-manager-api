@@ -13,5 +13,6 @@
         public string PublicKey { get; set; }
         public string Badge { get; set; }
         public string DeviceId { get; set; }
+        public string ImagePath { get; set; }
     }
 }

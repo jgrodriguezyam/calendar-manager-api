@@ -21,6 +21,7 @@ namespace CalendarManager.Migrations.Sprint_01
                 .WithColumn("PublicKey").AsString(250).Nullable()
                 .WithColumn("Badge").AsString(250).Unique().NotNullable()
                 .WithColumn("DeviceId").AsString(250).Nullable()
+                .WithColumn("ImagePath").AsString(250).Nullable()
 
                 .WithColumn("CreatedBy").AsInt32().NotNullable()
                 .WithColumn("ModifiedBy").AsInt32().NotNullable()

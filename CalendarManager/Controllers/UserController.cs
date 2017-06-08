@@ -1,6 +1,7 @@
 ﻿using System.Web.Http;
 using CalendarManager.DTO.BaseResponse;
 using CalendarManager.DTO.Message.Users;
+using CalendarManager.Helpers;
 using CalendarManager.Services.Interfaces;
 
 namespace CalendarManager.Controllers
@@ -60,6 +61,12 @@ namespace CalendarManager.Controllers
         public SuccessResponse ChangePassword(ChangeUserPasswordRequest request)
         {
             return _userService.ChangePassword(request);
+        }
+
+        [HttpPost, Route("users/{Id}/file")]
+        public AddImageUserResponse Post(AddImageUserRequest request)
+        {
+            return _userService.AddImage(request, Request.GetFile());
         }
     }
 }

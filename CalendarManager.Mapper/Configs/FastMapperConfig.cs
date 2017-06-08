@@ -4,6 +4,7 @@ using CalendarManager.DTO.Message.Locations;
 using CalendarManager.DTO.Message.SharedLocations;
 using CalendarManager.DTO.Message.Users;
 using CalendarManager.Infrastructure.Dates;
+using CalendarManager.Mapper.Resolvers;
 
 namespace CalendarManager.Mapper.Configs
 {
@@ -21,6 +22,7 @@ namespace CalendarManager.Mapper.Configs
                 .IgnoreMember(dest => dest.PublicKey)
                 .IgnoreMember(dest => dest.Badge)
                 .IgnoreMember(dest => dest.DeviceId)
+                .IgnoreMember(dest => dest.ImagePath)
 
                 .IgnoreMember(dest => dest.CreatedBy)
                 .IgnoreMember(dest => dest.CreatedOn)
@@ -32,7 +34,8 @@ namespace CalendarManager.Mapper.Configs
                 .NewConfig();
 
             TypeAdapterConfig<Model.User, UserResponse>
-                .NewConfig();
+                .NewConfig()
+                .MapFrom(dest => dest.ImagePath, src => MapperResolver.MultimediaPath(src.ImagePath));
 
             #endregion
 
