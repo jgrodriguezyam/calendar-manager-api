@@ -7,6 +7,7 @@ namespace CalendarManager.DTO.Message.CheckIns
     {
         public int Id { get; set; }
         public int Type { get; set; }
+        public string CreatedOn { get; set; }
         public UserResponse User { get; set; }
         public LocationResponse Location { get; set; }
     }

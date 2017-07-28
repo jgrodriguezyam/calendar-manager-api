@@ -5,7 +5,8 @@
 
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)'==''">Debug</Configuration>
-    <ConnectionString Condition=" '$(ConnectionString)'==''">Server=JRODRIGUEZ-PC\SQLEXPRESS; Database=CalendarManager; User Id=sa; Password=desarrollo;</ConnectionString>
+    <!--<ConnectionString Condition=" '$(ConnectionString)'==''">Server=JRODRIGUEZ-PC\SQLEXPRESS; Database=CalendarManager; User Id=sa; Password=desarrollo;</ConnectionString>-->
+    <ConnectionString Condition=" '$(ConnectionString)'==''">Server=mssql5.gear.host; Database=CalendarManager; User Id=calendarmanager; Password=Fi7p33~tV-PT;</ConnectionString>
     <ArtifactsPath Condition=" '$(ArtifactsPath)'==''">../Artifacts</ArtifactsPath>
 
     <CoreAssembly Condition=" '$(CoreAssembly)'==''">../bin/$(Configuration)/CalendarManager.Migrations.dll</CoreAssembly>
