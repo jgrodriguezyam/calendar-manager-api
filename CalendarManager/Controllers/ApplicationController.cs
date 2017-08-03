@@ -24,7 +24,7 @@ namespace CalendarManager.Controllers
         [HttpGet, Route("error-codes")]
         public EnumeratorResponse ErrorCode()
         {
-            return new EnumeratorResponse { Enumerator = new CodeValidator().ConvertToCollection() };
+            return new EnumeratorResponse { Enumerator = new EErrorCode().ConvertToCollection() };
         }
     }
 }

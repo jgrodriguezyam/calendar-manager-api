@@ -65,6 +65,13 @@
     <Compile Include="Message\CheckIns\FindCheckInsRequest.cs" />
     <Compile Include="Message\CheckIns\FindCheckInsResponse.cs" />
     <Compile Include="Message\CheckIns\GetCheckInRequest.cs" />
+    <Compile Include="Message\Friendships\ConfirmRequest.cs" />
+    <Compile Include="Message\Friendships\DeleteFriendshipRequest.cs" />
+    <Compile Include="Message\Friendships\FindFriendshipsRequest.cs" />
+    <Compile Include="Message\Friendships\FindFriendshipsResponse.cs" />
+    <Compile Include="Message\Friendships\FriendshipRequest.cs" />
+    <Compile Include="Message\Friendships\FriendshipResponse.cs" />
+    <Compile Include="Message\Friendships\GetFriendshipRequest.cs" />
     <Compile Include="Message\Locations\DeleteLocationRequest.cs" />
     <Compile Include="Message\Locations\FindLocationsRequest.cs" />
     <Compile Include="Message\Locations\FindLocationsResponse.cs" />

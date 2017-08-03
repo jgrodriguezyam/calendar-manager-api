@@ -14,7 +14,6 @@ using CalendarManager.Infrastructure.Validators.Enums;
 using CalendarManager.Model.Enums;
 using FluentValidation.Results;
 
-
 namespace CalendarManager.Services.Validators.Implements
 {
     public class LocationValidator : BaseValidator<Location>, ILocationValidator
@@ -45,7 +44,7 @@ namespace CalendarManager.Services.Validators.Implements
                 return new ValidationFailure("Menu", "La fecha de inicio es mayor a fecha de fin");
 
             if (location.StartDate.IsNull() || location.EndDate.IsNull())
-                ExceptionExtensions.ThrowCustomException(HttpStatusCode.Conflict, CodeValidator.InvalidDate.GetValue(), "Fecha null");
+                ExceptionExtensions.ThrowCustomException(HttpStatusCode.Conflict, EErrorCode.InvalidDate, "Fecha null");
 
             return null;
         }

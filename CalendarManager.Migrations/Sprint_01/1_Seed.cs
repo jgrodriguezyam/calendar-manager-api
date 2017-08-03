@@ -105,11 +105,43 @@ namespace CalendarManager.Migrations.Sprint_01
 
             #endregion
 
+            #region Friendship
+
+            Create.Table("Friendship").InSchema("dbo")
+                .WithColumn("Id").AsInt32().PrimaryKey().Identity().NotNullable()
+                .WithColumn("UserId").AsInt32().NotNullable()
+                .WithColumn("FriendId").AsInt32().NotNullable()
+                .WithColumn("IsConfirmed").AsBoolean().NotNullable()
+
+                .WithColumn("CreatedBy").AsInt32().NotNullable()
+                .WithColumn("ModifiedBy").AsInt32().NotNullable()
+                .WithColumn("CreatedOn").AsDateTime().NotNullable()
+                .WithColumn("ModifiedOn").AsDateTime().NotNullable()
+                .WithColumn("IsActive").AsBoolean();
+
+            Create.ForeignKey("FK_Friendship_User").FromTable("Friendship").InSchema("dbo").ForeignColumn("UserId")
+                 .ToTable("User").InSchema("dbo").PrimaryColumn("Id");
+            Create.ForeignKey("FK_Friendship_Friend").FromTable("Friendship").InSchema("dbo").ForeignColumn("FriendId")
+                 .ToTable("User").InSchema("dbo").PrimaryColumn("Id");
+
+            Create.Index("IX_User").OnTable("Friendship").InSchema("dbo").OnColumn("UserId").Ascending();
+            Create.Index("IX_Friend").OnTable("Friendship").InSchema("dbo").OnColumn("FriendId").Ascending();
+            
+            #endregion
+
             //Execute.Sql("alter database CalendarManager set allow_snapshot_isolation on");
         }
 
         public override void Down()
         {
+            #region Friendship
+
+            Delete.ForeignKey("FK_Friendship_User").OnTable("Friendship").InSchema("dbo");
+            Delete.ForeignKey("FK_Friendship_Friend").OnTable("Friendship").InSchema("dbo");
+            Delete.Table("Friendship").InSchema("dbo");
+
+            #endregion
+
             #region CheckIn
 
             Delete.ForeignKey("FK_CheckIn_User").OnTable("CheckIn").InSchema("dbo");

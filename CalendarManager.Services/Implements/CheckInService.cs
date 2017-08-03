@@ -86,6 +86,7 @@ namespace CalendarManager.Services.Implements
         {
             try
             {
+                request.Id.ThrowExceptionIfIsZero();
                 _checkInQuery.Init();
                 _checkInQuery.WithOnlyActivated(true);
                 _checkInQuery.WithId(request.Id);

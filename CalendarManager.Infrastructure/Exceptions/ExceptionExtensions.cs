@@ -3,8 +3,11 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Web.Http;
+using CalendarManager.Infrastructure.Enums;
+using CalendarManager.Infrastructure.Integers;
 using CalendarManager.Infrastructure.Objects;
 using CalendarManager.Infrastructure.Strings;
+using CalendarManager.Infrastructure.Validators.Enums;
 
 namespace CalendarManager.Infrastructure.Exceptions
 {
@@ -32,6 +35,18 @@ namespace CalendarManager.Infrastructure.Exceptions
         {
             if (stringValue.IsNotNullOrEmpty())
                 ThrowException<TException>(message);
+        }
+
+        public static void ThrowExceptionIfIsZero(this int intValue)
+        {
+            if (intValue.IsZero())
+                ThrowCustomException(HttpStatusCode.Conflict, EErrorCode.IsZero, "El valor no puede ser cero");
+        }
+
+        public static void ThrowExceptionIfIsNotZero(this int intValue)
+        {
+            if (intValue.IsNotZero())
+                ThrowCustomException(HttpStatusCode.Conflict, EErrorCode.IsNotZero, "El valor no es cero");
         }
 
         private static void ThrowException<TException>(string message) where TException : Exception
@@ -78,28 +93,27 @@ namespace CalendarManager.Infrastructure.Exceptions
         public static void ThrowExceptionIfIsReference(this bool isRefence)
         {
             if (isRefence)
-            {
-                throw new HttpResponseException(new HttpResponseMessage
-                {
-                    StatusCode = HttpStatusCode.PreconditionFailed,
-                    Content = new StringContent("{\"Message\": \"Remover previamente las referencias\"}", Encoding.Default, "application/json")
-                });
-            }
+                ThrowCustomException(HttpStatusCode.PreconditionFailed, EErrorCode.AlreadyReferenced, "Remover previamente las referencias");
         }
 
         public static void ThrowExceptionIfRecordIsNull(this object objectValue)
         {
             if (objectValue.IsNull())
-                ThrowCustomException(HttpStatusCode.NotFound, "Registro no encontrado");
+                ThrowCustomException(HttpStatusCode.NotFound, EErrorCode.NotFound, "Registro no encontrado");
         }
 
-        public static void ThrowCustomException(HttpStatusCode httpStatusCode, int code, string message)
+        public static void ThrowCustomException(HttpStatusCode httpStatusCode, EErrorCode errorCode, string message)
         {
             throw new HttpResponseException(new HttpResponseMessage
             {
                 StatusCode = httpStatusCode,
-                Content = new StringContent("{\"ErrorCode\": " + code + ",\"Message\": \"" + message + "\"}", Encoding.Default, "application/json")
+                Content = new StringContent("{\"ErrorCode\": " + errorCode.GetValue() + ",\"Message\": \"" + message + "\"}", Encoding.Default, "application/json")
             });
+        }
+
+        public static void ThrowCustomConflictException(EErrorCode errorCode, string message)
+        {
+            ThrowCustomException(HttpStatusCode.Conflict, errorCode, message);
         }
     }
 }

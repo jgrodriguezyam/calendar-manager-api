@@ -12,6 +12,7 @@ namespace CalendarManager.EntityFramework.Mappings
             Property(user => user.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
         }
     }
+
     public class LocationMap : EntityTypeConfiguration<Location>
     {
         public LocationMap()
@@ -44,6 +45,15 @@ namespace CalendarManager.EntityFramework.Mappings
 
             HasRequired(checkIn => checkIn.User).WithMany(user => user.CheckIns).HasForeignKey(checkIn => checkIn.UserId);
             HasRequired(checkIn => checkIn.Location).WithMany(location => location.CheckIns).HasForeignKey(checkIn => checkIn.LocationId);
+        }
+    }
+
+    public class FriendshipMap : EntityTypeConfiguration<Friendship>
+    {
+        public FriendshipMap()
+        {
+            ToTable("Friendship").HasKey(friendship => friendship.Id);
+            Property(friendship => friendship.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
         }
     }
 }

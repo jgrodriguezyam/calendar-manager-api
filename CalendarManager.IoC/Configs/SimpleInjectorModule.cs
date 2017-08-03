@@ -67,6 +67,11 @@ namespace CalendarManager.IoC.Configs
             _container.Register<ICheckInQuery, CheckInQuery>();
             _container.Register<ICheckInValidator, CheckInValidator>();
             _container.Register<ICheckInService, CheckInService>();
+
+            _container.Register<IFriendshipRepository, FriendshipRepository>();
+            _container.Register<IFriendshipQuery, FriendshipQuery>();
+            _container.Register<IFriendshipValidator, FriendshipValidator>();
+            _container.Register<IFriendshipService, FriendshipService>();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using CalendarManager.DTO.Message.CheckIns;
+using CalendarManager.DTO.Message.Friendships;
 using FastMapper;
 using CalendarManager.DTO.Message.Locations;
 using CalendarManager.DTO.Message.SharedLocations;
@@ -97,6 +98,25 @@ namespace CalendarManager.Mapper.Configs
                 .IgnoreMember(dest => dest.Type);
 
             TypeAdapterConfig<Model.CheckIn, CheckInResponse>
+                .NewConfig();
+
+            #endregion
+
+            #region Friendship
+
+            TypeAdapterConfig<Model.Friendship, Model.Friendship>
+                .NewConfig()
+                .IgnoreMember(dest => dest.Id)
+                .IgnoreMember(dest => dest.CreatedBy)
+                .IgnoreMember(dest => dest.CreatedOn)
+                .IgnoreMember(dest => dest.ModifiedBy)
+                .IgnoreMember(dest => dest.ModifiedOn)
+                .IgnoreMember(dest => dest.IsActive);
+
+            TypeAdapterConfig<FriendshipRequest, Model.Friendship>
+                .NewConfig();
+
+            TypeAdapterConfig<Model.Friendship, FriendshipResponse>
                 .NewConfig();
 
             #endregion

@@ -116,7 +116,7 @@
     <Compile Include="Strings\StringExtensions.cs" />
     <Compile Include="Utils\Cryptography.cs" />
     <Compile Include="Validators\BaseValidator.cs" />
-    <Compile Include="Validators\Enums\CodeValidator.cs" />
+    <Compile Include="Validators\Enums\EErrorCode.cs" />
     <Compile Include="Validators\Enums\DisableValidatorHmac.cs" />
     <Compile Include="Validators\Enums\DisableValidatorRole.cs" />
     <Compile Include="Validators\Enums\LoginType.cs" />

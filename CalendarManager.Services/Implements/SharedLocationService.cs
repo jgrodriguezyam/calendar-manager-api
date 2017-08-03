@@ -73,6 +73,7 @@ namespace CalendarManager.Services.Implements
         {
             try
             {
+                request.Id.ThrowExceptionIfIsZero();
                 _sharedLocationQuery.Init();
                 _sharedLocationQuery.WithOnlyActivated(true);
                 _sharedLocationQuery.WithId(request.Id);

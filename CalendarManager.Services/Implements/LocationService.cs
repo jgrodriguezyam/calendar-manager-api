@@ -93,6 +93,7 @@ namespace CalendarManager.Services.Implements
         {
             try
             {
+                request.Id.ThrowExceptionIfIsZero();
                 _locationQuery.Init();
                 _locationQuery.WithOnlyActivated(true);
                 _locationQuery.WithId(request.Id);
