@@ -10,6 +10,7 @@ namespace CalendarManager.DataAccess.Queries
         void WithFriend(int friendId);
         void WithOnlyConfirmed(bool onlyConfirmed);
         void WithOnlyUnconfirmed(bool onlyUnconfirmed);
+        void WithUserOrFriend(int userIdOrFriendId);
         void IncludeUser();
         void IncludeFriend();
     }

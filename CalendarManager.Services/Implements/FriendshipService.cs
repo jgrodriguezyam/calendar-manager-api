@@ -35,6 +35,7 @@ namespace CalendarManager.Services.Implements
                 _friendshipQuery.WithFriend(request.FriendId);
                 _friendshipQuery.WithOnlyConfirmed(request.OnlyConfirmed);
                 _friendshipQuery.WithOnlyUnconfirmed(request.OnlyUnconfirmed);
+                _friendshipQuery.WithUserOrFriend(request.UserIdOrFriendId);
                 _friendshipQuery.IncludeUser();
                 _friendshipQuery.IncludeFriend();
                 _friendshipQuery.Sort(request.Sort, request.SortBy);

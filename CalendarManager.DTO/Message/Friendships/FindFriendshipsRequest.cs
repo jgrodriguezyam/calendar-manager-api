@@ -8,5 +8,6 @@ namespace CalendarManager.DTO.Message.Friendships
         public int FriendId { get; set; }
         public bool OnlyConfirmed { get; set; }
         public bool OnlyUnconfirmed { get; set; }
+        public int UserIdOrFriendId { get; set; }
     }
 }

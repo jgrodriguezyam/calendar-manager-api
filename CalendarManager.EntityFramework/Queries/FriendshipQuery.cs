@@ -50,6 +50,12 @@ namespace CalendarManager.EntityFramework.Queries
                 Query = Query.Where(friendship => friendship.IsConfirmed == false);
         }
 
+        public void WithUserOrFriend(int userIdOrFriendId)
+        {
+            if (userIdOrFriendId.IsNotZero())
+                Query = Query.Where(friendship => friendship.UserId == userIdOrFriendId || friendship.FriendId == userIdOrFriendId);
+        }
+
         public void IncludeUser()
         {
             Query = Query.Include(friendship => friendship.User);
